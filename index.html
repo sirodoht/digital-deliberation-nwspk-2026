@@ -101,6 +101,15 @@
   .join .qr { float: none; width: 600px; height: 600px; margin: 0; image-rendering: pixelated; }
   .join p { font-size: 48px; font-weight: 600; letter-spacing: 0.01em; margin: 0; }
   .join a { text-decoration: none; }
+  @page { size: 1600px 900px; margin: 0; }
+  @media print {
+    html, body { height: auto; overflow: visible; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    #stage { position: static; width: 1600px; height: auto; transform: none !important; }
+    .slide { display: block; position: relative; inset: auto; width: 1600px; height: 900px; overflow: hidden; break-after: page; break-inside: avoid; }
+    .slide:last-child { break-after: auto; }
+    .slide.join { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+  }
 </style>
 </head>
 <body>
